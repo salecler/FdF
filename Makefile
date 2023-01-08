@@ -2,7 +2,7 @@
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -O2
-MLX = -Lmlx -framework OpenGL -framework AppKit
+MLX = -Lmlx mlx/libmlx.a -lglfw -L /opt/homebrew/Cellar/glfw/3.3.8/lib -framework OpenGL -framework AppKit
 NAME = fdf
 SRC = src/fdf.c
 OBJ = $(SRC:.c=.o)
