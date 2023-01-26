@@ -6,7 +6,7 @@
 /*   By: salecler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:40:16 by salecler          #+#    #+#             */
-/*   Updated: 2022/06/30 02:11:08 by salecler         ###   ########.fr       */
+/*   Updated: 2023/01/26 17:39:27 by salecler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (0);
-	auxs1 = ft_strlen(s1);
-	auxs2 = ft_strlen(s2);
+	auxs1 = ft_strlen_lib(s1);
+	auxs2 = ft_strlen_lib(s2);
 	cpy = (char *)malloc(auxs1 + auxs2 + 1);
 	if (!cpy)
 		return (0);

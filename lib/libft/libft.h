@@ -6,7 +6,7 @@
 /*   By: salecler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 21:08:21 by salecler          #+#    #+#             */
-/*   Updated: 2022/06/30 02:18:58 by salecler         ###   ########.fr       */
+/*   Updated: 2023/01/26 17:10:43 by salecler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}	t_list;
 int		ft_isalpha(unsigned int k);
 int		ft_isdigit(unsigned int k);
 int		ft_isalnum(unsigned int k);
@@ -31,7 +26,7 @@ int		ft_tolower(unsigned int k);
 int		ft_atoi(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t size);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
-size_t	ft_strlen(const char *str);
+size_t	ft_strlen_lib(const char *str);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strchr(const char *str, int k);
@@ -55,13 +50,4 @@ void	ft_putstr_fd(char *str, int fd);
 void	ft_putendl_fd(char *str, int fd);
 void	ft_putnbr_fd(int nb, int fd);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-t_list	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-int		ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 #endif

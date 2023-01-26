@@ -6,13 +6,13 @@
 /*   By: salecler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 17:43:42 by salecler          #+#    #+#             */
-/*   Updated: 2022/06/27 21:14:44 by salecler         ###   ########.fr       */
+/*   Updated: 2023/01/26 17:10:29 by salecler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen_lib(const char *str)
 {
 	int	i;
 

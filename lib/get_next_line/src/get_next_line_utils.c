@@ -1,4 +1,4 @@
-#include "get_next_line.h"
+#include "../include/get_next_line.h"
 
 int found_nl(t_list *stash)
 {
