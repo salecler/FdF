@@ -3,7 +3,10 @@
 
 #include <math.h>
 
+#define BLACK 000000
+#define WHITE 16777215
 #define RED 16711680
+#define BLUE 3093151
 
 typedef struct s_data
 {
