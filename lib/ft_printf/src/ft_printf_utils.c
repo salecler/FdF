@@ -1,31 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salecler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/26 14:16:10 by salecler          #+#    #+#             */
-/*   Updated: 2023/01/26 18:19:35 by salecler         ###   ########.fr       */
+/*   Created: 2022/08/22 18:32:06 by salecler          #+#    #+#             */
+/*   Updated: 2022/08/29 16:10:49 by salecler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "../include/ft_printf.h"
 
-
-void	ft_get_map(char *filename, t_numbers **head)
+int	ft_strlen_printf(char *str)
 {
-	char	*line;
-	int	fd;
+	int	len;
 
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
+}
+
+int	ft_putchar(char c)
+{
+	write(1, &c, 1);
+	return (1);
+}
+
+int	ft_putstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
 	{
-		perror("Bad file.");
+		write(1, "(null)", 6);
+		return (6);
 	}
-	while ((line = get_next_line(fd)) != NULL)
+	while (str[i])
 	{
-		add_node(head, line);
-		free(line);
+		write(1, &str[i], 1);
+		i++;
 	}
+	return (ft_strlen_printf(str));
 }

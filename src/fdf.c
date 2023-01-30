@@ -14,18 +14,16 @@
 
 int	main(void)
 {
-	char	*map;
+	t_numbers	*head;
 	char	*filename = "test";
 	int	width;
 	int	height;
 
-	map = malloc(1);
-	*map = '\0';
+	head = NULL;
 	width = 0;
 	height = 0;
-	map = ft_get_map(filename);
-	width = ft_get_width(map);
-	height = ft_get_height(map);
+	ft_get_map(filename, &head);
 	printf("%d", height);
+	printf("%d", width);
 	return (0);
 }

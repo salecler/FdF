@@ -3,87 +3,63 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int		ft_words(const char *s, char c)
+static int	count_words(const char *str, char c)
 {
-	int	i;
-	int	len;
+	int i;
+	int trigger;
 
 	i = 0;
-	len = 0;
-	while (s[i] == c && s[i])
-		i++;
-	while (s[i] != '\0')
+	trigger = 0;
+	while (*str)
 	{
-		while (s[i] != c)
+		if (*str != c && trigger == 0)
 		{
-			if (s[i + 1] == c)
-				len++;
+			trigger = 1;
 			i++;
 		}
-		while (s[i] == c && s[i])
-			i++;
+		else if (*str == c)
+			trigger = 0;
+		str++;
 	}
-	return (len);
+	return (i);
 }
 
-void	put_word(char **str, char *s, int len_word, int i)
+static char	*word_dup(const char *str, int start, int finish)
 {
-	int	j;
-
-	j = 0;
-	while (len_word > 0)
-	{
-		*str[j] = s[i - len_word];
-		j++;
-		len_word--;
-	}
-	*str[j] = '\0';
-}
-
-char	**free_split(char **str, int pos_word)
-{
-	while (pos_word > 0)
-	{
-		free(str[pos_word]);
-		pos_word--;
-	}
-	free(str);
-	return (NULL);
-}
-
-char    **ft_split(char const *s, char c)
-{
-	char	**str;
+	char	*word;
 	int		i;
-	int		all_words;
-	int		pos_word;
-	int		len_word;
 
-	if (!s)
-		return (NULL);
 	i = 0;
-	all_words = ft_words(s, c);
-	str = malloc(sizeof(char *) * all_words + 1);
-	if (!str)
-		return (NULL);
-	*str[all_words] = '\0';
-	pos_word = 0;
-	len_word = 0;
-	while (pos_word < all_words)
+	word = malloc((finish - start + 1) * sizeof(char));
+	while (start < finish)
+		word[i++] = str[start++];
+	word[i] = '\0';
+	return (word);
+}
+
+char		**ft_split(char const *s, char c)
+{
+	size_t	i;
+	size_t	j;
+	int		index;
+	char	**split;
+
+	if (!s || !(split = malloc((count_words(s, c) + 1) * sizeof(char *))))
+		return (0);
+	i = 0;
+	j = 0;
+	index = -1;
+	while (i <= ft_strlen_lib(s))
 	{
-		while (*str[i] == c && str[i] != '\0')
-			i++;
-		while (*str[i] != c && str[i] != '\0')
+		if (s[i] != c && index < 0)
+			index = i;
+		else if ((s[i] == c || i == ft_strlen_lib(s)) && index >= 0)
 		{
-			len_word++;
-			i++;
+			split[j++] = word_dup(s, index, i);
+			index = -1;
 		}
-		str[pos_word] = (char *)malloc(sizeof(char) * len_word + 1);
-		if (!*str[pos_word])
-			return (free_split(str, pos_word));
-		put_word(&str[pos_word], (char *) s, len_word, i);
-		len_word = 0;
-		pos_word++;
+		i++;
 	}
-	return (str); 
+	split[j] = 0;
+	return (split);
 }
