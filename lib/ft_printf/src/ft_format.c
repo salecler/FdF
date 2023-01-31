@@ -43,7 +43,7 @@ int	ft_putnbr_base(unsigned long n, char *base)
 
 	nbr = (unsigned int)n;
 	len = 0;
-	if (nbr >= ft_strlen(base))
+	if (nbr >= ft_strlen_printf(base))
 	{
 		ft_putnbr_base(nbr / ft_strlen_printf(base), base);
 		nbr = nbr % ft_strlen_printf(base);

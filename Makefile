@@ -12,6 +12,10 @@ SRC = 	src/fdf.c\
 	lib/libft/ft_strjoin.c\
 	lib/libft/ft_split.c\
 	lib/libft/ft_atoi.c\
+	lib/libft/ft_strdup.c\
+	lib/ft_printf/src/ft_printf.c\
+	lib/ft_printf/src/ft_printf_utils.c\
+	lib/ft_printf/src/ft_format.c\
 	src/list_utils.c
 OBJ = $(SRC:.c=.o)
 

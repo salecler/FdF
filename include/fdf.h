@@ -15,7 +15,8 @@
 
 typedef struct s_node
 {
-	char	**map;
+	int	width;
+	int	height;
 	struct	t_node *next;
 }	t_node;
 
@@ -29,6 +30,7 @@ void	*set_window(void);
 
 // FDF
 void	ft_get_map(char *filename, t_numbers **head);
+void	ft_malloc_map(char *filename);
 
 void	add_node(t_numbers **head, char *line);
 void	print_list(t_numbers **head);

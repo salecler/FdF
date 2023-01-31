@@ -15,15 +15,10 @@
 int	main(void)
 {
 	t_numbers	*head;
-	char	*filename = "test";
-	int	width;
-	int	height;
+	char	*filename = "42.fdf";
 
 	head = NULL;
-	width = 0;
-	height = 0;
 	ft_get_map(filename, &head);
-	printf("%d", height);
-	printf("%d", width);
+	ft_malloc_map(filename);
 	return (0);
 }

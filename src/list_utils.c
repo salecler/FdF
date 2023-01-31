@@ -34,7 +34,7 @@ void	add_node(t_numbers **head, char *line)
 	while (temp->next != NULL)
 		temp = temp->next;
 	temp->next = new_node;
-	print_list(&head);
+	print_list(head);
 }
 
 void	print_list(t_numbers **head)
@@ -44,7 +44,6 @@ void	print_list(t_numbers **head)
 	temp = *head;
 	while (temp != NULL)
 	{
-		ft_printf("%d\n", temp->number);
 		temp = temp->next;
 	}
 }
