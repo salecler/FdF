@@ -23,7 +23,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(MLX)
-	@./$(NAME)
+	#@./$(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

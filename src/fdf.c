@@ -12,13 +12,23 @@
 
 #include "../include/fdf.h"
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	t_numbers	*head;
-	char	*filename = "42.fdf";
+	t_node	*node;
+	char	*filename = av[1];
+	char	**map;
+	int	width;
 
-	head = NULL;
-	ft_get_map(filename, &head);
-	ft_malloc_map(filename);
+	if (ac < 2)
+	{
+		perror("Not enough arguments.");
+		return (1);
+	}
+	node = NULL;
+	width = 0;
+	map = ft_malloc_map(filename, &node, width);
+	ft_printf("map[0][0] = %c\n", map[0][0]);
+	ft_printf("%d\n", node->rows);
+	ft_printf("%d\n", node->width);
 	return (0);
 }

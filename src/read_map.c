@@ -12,7 +12,7 @@
 
 #include "../include/fdf.h"
 
-void	ft_malloc_map(char *filename)
+char	**ft_malloc_map(char *filename, t_node **node, int width)
 {
 	int	rows;
 	int	fd;
@@ -27,7 +27,6 @@ void	ft_malloc_map(char *filename)
 	rows = 0;
 	while (get_next_line(fd) != NULL)
 		rows++;
-	printf("%d\n", rows);
 	map = malloc(rows * sizeof(char *));
 	close(fd);
 	fd = open(filename, O_RDONLY);
@@ -45,22 +44,7 @@ void	ft_malloc_map(char *filename)
 		i++;
 	}
 	close(fd);
-}
-
-void	ft_get_map(char *filename, t_numbers **head)
-{
-	char	*line;
-	int	fd;
-
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
-	{
-		perror("Bad file.");
-	}
-	while ((line = get_next_line(fd)) != NULL)
-	{
-		add_node(head, line);
-		free(line);
-	}
-	close(fd);
+	width = ft_strlen_lib(map[0]);
+	*node = new_node(rows, width);
+	return (map);
 }

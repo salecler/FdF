@@ -16,7 +16,7 @@
 typedef struct s_node
 {
 	int	width;
-	int	height;
+	int	rows;
 	struct	t_node *next;
 }	t_node;
 
@@ -29,8 +29,7 @@ typedef struct s_numbers
 void	*set_window(void);
 
 // FDF
-void	ft_get_map(char *filename, t_numbers **head);
-void	ft_malloc_map(char *filename);
+char	**ft_malloc_map(char *filename, t_node **node, int width);
 
-void	add_node(t_numbers **head, char *line);
+t_node	*new_node(int rows, int width);
 void	print_list(t_numbers **head);
