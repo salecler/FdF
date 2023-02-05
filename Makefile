@@ -2,11 +2,12 @@
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -O2
-MLX = -Lmlx mlx/libmlx.a -lglfw -L /opt/homebrew/Cellar/glfw/3.3.8/lib -framework OpenGL -framework AppKit
+MLX = -Lmlx mlx/libmlx.a -lglfw -L ~/.brew/Cellar/glfw/3.3.8/lib -framework OpenGL -framework AppKit
 NAME = fdf
 SRC = 	src/fdf.c\
       	lib/libft/ft_strlen.c\
 	src/read_map.c\
+	src/ft_mlx.c\
 	lib/get_next_line/src/get_next_line.c\
 	lib/get_next_line/src/get_next_line_utils.c\
 	lib/libft/ft_strjoin.c\

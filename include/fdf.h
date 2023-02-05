@@ -13,8 +13,12 @@
 #define RED 16711680
 #define BLUE 3093151
 
+#define PIXEL_SCREEN 55
+
 typedef struct s_node
 {
+	char	**map;
+	int	**map_int;
 	int	width;
 	int	rows;
 	struct	t_node *next;
@@ -29,7 +33,12 @@ typedef struct s_numbers
 void	*set_window(void);
 
 // FDF
-char	**ft_malloc_map(char *filename, t_node **node, int width);
+void	ft_malloc_map(char *filename, t_node *node);
+//void	ft_del_spaces(char **map, t_node *node);
+void	ft_get_width(t_node *node);
 
 t_node	*new_node(int rows, int width);
 void	print_list(t_numbers **head);
+
+// MLX
+void	ft_mlx(t_node *node);
