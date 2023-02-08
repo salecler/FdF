@@ -13,7 +13,7 @@
 #define RED 16711680
 #define BLUE 3093151
 
-#define PIXEL_SCREEN 55
+#define PIXEL_SIZE 30
 
 typedef struct s_node
 {
@@ -42,3 +42,4 @@ void	print_list(t_numbers **head);
 
 // MLX
 void	ft_mlx(t_node *node);
+void	ft_lines_drawing(void *mlx, void *mlx_win, t_node *node);

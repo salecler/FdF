@@ -6,7 +6,7 @@
 /*   By: salecler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 14:16:10 by salecler          #+#    #+#             */
-/*   Updated: 2023/02/05 13:18:46 by salecler         ###   ########.fr       */
+/*   Updated: 2023/02/07 12:49:20 by salecler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	ft_malloc_map(char *filename, t_node *node)
 	node->width = 0;
 	while (get_next_line(fd) != NULL)
 		node->rows++;
-	ft_printf("%d", node->rows);
 	close(fd);
 	fd = open(filename, O_RDONLY);
 	while ((line = get_next_line(fd)) != NULL)
@@ -59,14 +58,6 @@ void	ft_malloc_map(char *filename, t_node *node)
 		free(line);
 	}
 	node->map = ft_split(concat, '\n');
-//	node->map_int = map;
-	int	i;
-	i = 0;
-	while (i < node->rows)
-	{
-//		printf("%s\n", map[i]);
-		i++;
-	}
 	close(fd);
 	ft_get_width(node);
 }
