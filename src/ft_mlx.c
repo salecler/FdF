@@ -6,7 +6,7 @@
 /*   By: salecler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 11:34:42 by salecler          #+#    #+#             */
-/*   Updated: 2023/02/07 14:25:19 by salecler         ###   ########.fr       */
+/*   Updated: 2023/02/14 13:56:57 by salecler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_lines_drawing(void *mlx, void *mlx_win, t_node *node)
 		while (x < (node->width * PIXEL_SIZE) - PIXEL_SIZE)
 		{
 			mlx_pixel_put(mlx, mlx_win, 200 + x, 200 + y, BLUE);
-			mlx_pixel_put(mlx, mlx_win, 200 + (y * 2), 200 + (x / 2), WHITE);
+			mlx_pixel_put(mlx, mlx_win, 200 + y + x, 200 + (x / 2), WHITE);
 			x++;
 		}
 		x = 0;
